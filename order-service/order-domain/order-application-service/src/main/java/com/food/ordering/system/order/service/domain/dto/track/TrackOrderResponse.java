@@ -1,4 +1,4 @@
-package com.food.ordering.system.service.domain.dto.track;
+package com.food.ordering.system.order.service.domain.dto.track;
 
 import com.food.ordering.system.domain.valueobject.OrderStatus;
 import lombok.AllArgsConstructor;

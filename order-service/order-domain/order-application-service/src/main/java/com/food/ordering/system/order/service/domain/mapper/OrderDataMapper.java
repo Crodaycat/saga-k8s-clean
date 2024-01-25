@@ -1,4 +1,4 @@
-package com.food.ordering.system.service.domain.mapper;
+package com.food.ordering.system.order.service.domain.mapper;
 
 import com.food.ordering.system.domain.valueobject.CustomerId;
 import com.food.ordering.system.domain.valueobject.Money;
@@ -10,9 +10,9 @@ import com.food.ordering.system.order.service.domain.entity.Product;
 import com.food.ordering.system.order.service.domain.entity.Restaurant;
 import com.food.ordering.system.order.service.domain.valueobject.OrderItemId;
 import com.food.ordering.system.order.service.domain.valueobject.StreetAddress;
-import com.food.ordering.system.service.domain.dto.create.CreateOrderCommand;
-import com.food.ordering.system.service.domain.dto.create.CreateOrderResponse;
-import com.food.ordering.system.service.domain.dto.create.OrderAddress;
+import com.food.ordering.system.order.service.domain.dto.create.CreateOrderCommand;
+import com.food.ordering.system.order.service.domain.dto.create.CreateOrderResponse;
+import com.food.ordering.system.order.service.domain.dto.create.OrderAddress;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -57,7 +57,7 @@ public class OrderDataMapper {
     }
 
     private List<OrderItem> orderItemsToOrderItemsEntity(
-            List<com.food.ordering.system.service.domain.dto.create.OrderItem> orderItems
+            List<com.food.ordering.system.order.service.domain.dto.create.OrderItem> orderItems
     ) {
         return orderItems.stream()
                 .map(orderItem -> OrderItem.Builder.builder()

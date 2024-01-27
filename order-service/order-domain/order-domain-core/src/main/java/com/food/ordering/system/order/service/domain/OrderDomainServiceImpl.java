@@ -64,7 +64,7 @@ public class OrderDomainServiceImpl implements OrderDomainService {
 
     private void setOrderProductInformation(Order order, Restaurant restaurant) {
         final var restaurantProducts = restaurant.getProducts().stream()
-                .collect(Collectors.toMap(Product::getId, Function.identity()));
+                .collect(Collectors.toMap(Product::getId, Function.identity(), (productA, productB) -> productA));
 
         order.getItems().forEach(orderItem -> {
             final Product currentProduct = orderItem.getProduct();

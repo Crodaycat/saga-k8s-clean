@@ -18,9 +18,10 @@
     <packaging>pom</packaging>
     <modules>
         <module>order-service</module>
-        <module>common</module>
+        <module>common</module> 
         <module>infrastructure</module>
         <module>customer-service</module>
+        <module>payment-service</module>
     </modules>
 
     <properties>

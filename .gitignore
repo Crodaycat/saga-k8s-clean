@@ -36,3 +36,14 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+
+infrastructure/docker-compose/volumes/kafka/*/*
+!infrastructure/docker-compose/volumes/kafka/*/.gitkeep
+
+
+infrastructure/docker-compose/volumes/zookeeper/data/*
+!infrastructure/docker-compose/volumes/zookeeper/data/.gitkeep
+
+infrastructure/docker-compose/volumes/zookeeper/transactions/*
+!infrastructure/docker-compose/volumes/zookeeper/transactions/.gitkeep

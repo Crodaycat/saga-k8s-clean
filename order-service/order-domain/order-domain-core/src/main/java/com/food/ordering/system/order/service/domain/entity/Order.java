@@ -71,6 +71,8 @@ public class Order extends AggregateRoot<OrderId> {
         validateItemsPrice();
     }
 
+    public static String FAILURE_MESSAGES_DELIMITER = ",";
+
     public void initializeOrder() {
         setId(new OrderId(UUID.randomUUID()));
         trackingId = new TrackingId(UUID.randomUUID());

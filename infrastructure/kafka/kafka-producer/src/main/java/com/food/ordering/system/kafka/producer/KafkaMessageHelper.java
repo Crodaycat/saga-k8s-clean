@@ -1,32 +1,30 @@
-package com.food.ordering.system.order.service.messaging.publisher.kafka;
+package com.food.ordering.system.kafka.producer;
 
-import com.food.ordering.system.kafka.order.avro.model.PaymentRequestAvroModel;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
 @Component
-public class OrderKafkaMessageHelper {
+public class KafkaMessageHelper {
 
     public <T> ListenableFutureCallback<SendResult<String, T>> getKafkaCallback(
             String paymentResponseTopicName,
-            T requestAvroModel,
+            T avroModel,
             String orderId,
-            String requestAvroModelName
-    ) {
+            String avroModelName) {
         return new ListenableFutureCallback<SendResult<String, T>>() {
             @Override
             public void onFailure(Throwable ex) {
                 log.error(
                         "Error while sending {} message {} to topic {}",
-                        requestAvroModelName,
-                        requestAvroModel.toString(),
+                        avroModelName,
+                        avroModel.toString(),
                         paymentResponseTopicName,
-                        ex
-                );
+                        ex);
             }
 
             @Override
@@ -38,8 +36,7 @@ public class OrderKafkaMessageHelper {
                         metadata.topic(),
                         metadata.partition(),
                         metadata.offset(),
-                        metadata.timestamp()
-                );
+                        metadata.timestamp());
             }
         };
     }
